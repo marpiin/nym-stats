@@ -1,0 +1,20 @@
+# Archivos de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.env
+*.venv
+venv/
+.env
+.venv
+
+# Archivos de datos generados por el script
+nym_rewards_daily.csv
+nym_rewards_monthly.csv
+log_nym.txt
+
+# Archivos temporales
+*.tmp
+*.log
+.DS_Store
