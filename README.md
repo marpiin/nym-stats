@@ -1,20 +1,7 @@
-```
 # Nym Rewards Scraper
 
 Este proyecto contiene un script en Python para obtener las recompensas de un nodo de Nym y almacenarlas en ficheros CSV (diarios y mensuales).  
 El script está pensado para ejecutarse automáticamente en una VM de Google Cloud utilizando **cron**.
-
-## Estructura del proyecto
-
-```
-
-.
-├── nym\_scraper.py          # Script principal que obtiene y guarda las recompensas
-├── requirements.txt        # Dependencias necesarias
-├── .gitignore              # Archivos y carpetas ignorados por git
-└── README.md               # Documentación del proyecto
-
-````
 
 ## Instalación
 
@@ -22,7 +9,7 @@ El script está pensado para ejecutarse automáticamente en una VM de Google Clo
    ```bash
    git clone <URL_DEL_REPOSITORIO>
    cd <NOMBRE_DEL_PROYECTO>
-````
+    ```
 
 2. Crear y activar un entorno virtual (opcional pero recomendado):
 
@@ -66,12 +53,3 @@ Ejemplo para ejecutar todos los días a las 12:00:
 * **nym\_rewards\_monthly.csv** → Acumulado mensual de recompensas.
 
 Estos archivos están excluidos del repositorio (`.gitignore`).
-
----
-
-## Licencia
-
-Este proyecto se distribuye bajo la licencia MIT.
-
-```
-```

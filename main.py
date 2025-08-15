@@ -56,28 +56,22 @@ def update_monthly_rewards(operator_rewards_value):
     today = datetime.now()
     current_month = today.strftime("%Y-%m")
 
-    # Cargar archivo diario
     daily_file = "nym_rewards_daily.csv"
     df_daily = pd.read_csv(daily_file)
     df_daily["date"] = pd.to_datetime(df_daily["date"])
 
-    # Ordenar por fecha para asegurar correcto cálculo
     df_daily = df_daily.sort_values("date")
 
-    # Si solo hay una fila, no hay diferencia aún
     if len(df_daily) < 2:
         return
 
-    # Calcular diferencia entre el último y el penúltimo día
     last = df_daily.iloc[-1]
     prev = df_daily.iloc[-2]
     diff = last["operator_rewards_value"] - prev["operator_rewards_value"]
 
     if diff <= 0:
-        # No acumulamos recompensas negativas o cero
         return
 
-    # Cargar archivo mensual (si existe)
     if os.path.exists(monthly_file):
         df_monthly = pd.read_csv(monthly_file)
     else:
@@ -86,11 +80,9 @@ def update_monthly_rewards(operator_rewards_value):
             "reward_sum": pd.Series(dtype="float")
         })
 
-    # Ver si ya existe el mes actual
     if current_month in df_monthly["month"].values:
         df_monthly.loc[df_monthly["month"] == current_month, "reward_sum"] += diff
     else:
-        # Añadir nuevo mes
         new_row = pd.DataFrame({"month": [current_month], "reward_sum": [diff]})
         df_monthly = pd.concat([df_monthly, new_row], ignore_index=True)
 
