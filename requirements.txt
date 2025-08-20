@@ -3,3 +3,4 @@ pandas
 python-telegram-bot
 asyncio
 dotenv
+requests
