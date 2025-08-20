@@ -1,3 +1,5 @@
+# Scrapea la página de tu nodo de Nym y actualiza el CSV
+
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
@@ -6,12 +8,15 @@ from selenium.webdriver.support import expected_conditions as EC
 import pandas as pd
 from datetime import datetime
 import os
+from dotenv import load_dotenv
 
-# Change URL depending on your node
-URL = "https://explorer.nym.spectredao.net/nodes/2BsuTctgodMkyS3YE2ggqL5PrwcmoZmTtt92RxMJ1vvy"
+load_dotenv()
 
-# Change the amount bonded to your node depending on your node
-BOND_AMOUNT = 175.0
+# URL del nodo
+URL = os.getenv("NYM_NODE_URL", "https://explorer.nym.spectredao.net/nodes/example")
+
+# Cantidad bonded
+BOND_AMOUNT = float(os.getenv("NYM_BOND_AMOUNT", "0"))
 
 def get_stake_selenium():
     options = Options()
