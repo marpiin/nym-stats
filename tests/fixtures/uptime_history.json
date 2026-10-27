@@ -1,0 +1,12 @@
+{
+  "_comment": "SYNTHETIC. Hand-written in the shape of GET /v1/nym-nodes/uptime-history/{node_id}, oldest first as the live API returns it.",
+  "node_id": 900001,
+  "history": {
+    "pagination": {"total": 3, "page": 0, "size": 3},
+    "data": [
+      {"date": "2026-01-13", "uptime": 97},
+      {"date": "2026-01-14", "uptime": 100},
+      {"date": "2026-01-15", "uptime": 99}
+    ]
+  }
+}

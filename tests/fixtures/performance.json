@@ -1,0 +1,5 @@
+{
+  "_comment": "SYNTHETIC. Hand-written in the shape of GET /v1/nym-nodes/performance/{node_id}.",
+  "node_id": 900001,
+  "performance": 0.9512
+}

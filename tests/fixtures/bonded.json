@@ -1,0 +1,52 @@
+{
+  "_comment": "SYNTHETIC. Hand-written in the shape of GET /v1/nym-nodes/bonded. No real node, owner or amount.",
+  "pagination": {"total": 2, "page": 0, "size": 2},
+  "data": [
+    {
+      "bond_information": {
+        "node_id": 900001,
+        "owner": "n1syntheticowneraddressone",
+        "original_pledge": {"denom": "unym", "amount": "100000000"},
+        "bonding_height": 1000,
+        "is_unbonding": false,
+        "node": {"host": "node-one.example.invalid", "custom_http_port": 8080, "identity_key": "SyntheticIdentityKeyOne"}
+      },
+      "rewarding_details": {
+        "cost_params": {
+          "profit_margin_percent": "0.2",
+          "interval_operating_cost": {"denom": "unym", "amount": "40000000"}
+        },
+        "operator": "112500000.250000000000000000",
+        "delegates": "50000000000.000000000000000000",
+        "total_unit_reward": "1000.0",
+        "unit_delegation": "1000000000",
+        "last_rewarded_epoch": 500,
+        "unique_delegations": 10
+      },
+      "pending_changes": {"pledge_change": null, "cost_params_change": null}
+    },
+    {
+      "bond_information": {
+        "node_id": 900002,
+        "owner": "n1syntheticowneraddresstwo",
+        "original_pledge": {"denom": "unym", "amount": 200000000},
+        "bonding_height": 2000,
+        "is_unbonding": false,
+        "node": {"host": "node-two.example.invalid", "custom_http_port": null, "identity_key": "SyntheticIdentityKeyTwo"}
+      },
+      "rewarding_details": {
+        "cost_params": {
+          "profit_margin_percent": "0.1",
+          "interval_operating_cost": {"denom": "unym", "amount": "20000000"}
+        },
+        "operator": "200000000",
+        "delegates": "0",
+        "total_unit_reward": "0",
+        "unit_delegation": "1000000000",
+        "last_rewarded_epoch": 0,
+        "unique_delegations": 0
+      },
+      "pending_changes": {"pledge_change": null, "cost_params_change": null}
+    }
+  ]
+}
