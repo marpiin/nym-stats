@@ -34,9 +34,9 @@ def test_client_error_is_not_retried():
 
 
 def test_error_message_does_not_repeat_the_url():
-    secret_url = "https://api.telegram.org/bot123456:SYNTHETIC-TOKEN/sendMessage"
-    session = FakeSession([requests.ConnectionError(f"failed to reach {secret_url}")] * ATTEMPTS)
+    telegram_url = "https://api.telegram.org/bot123456:SYNTHETIC-TOKEN/sendMessage"
+    session = FakeSession([requests.ConnectionError(f"failed to reach {telegram_url}")] * ATTEMPTS)
     with pytest.raises(RequestFailed) as excinfo:
-        request_json(session, "POST", secret_url, label="telegram", sleep=lambda _: None)
+        request_json(session, "POST", telegram_url, label="telegram", sleep=lambda _: None)
     assert "SYNTHETIC-TOKEN" not in str(excinfo.value)
     assert "ConnectionError" in str(excinfo.value)

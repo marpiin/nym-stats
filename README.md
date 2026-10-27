@@ -186,9 +186,12 @@ ruff format --check .
 ruff check .
 pytest
 detect-secrets-hook --baseline .secrets.baseline $(git ls-files)
+git grep -nE "[0-9]{8,10}:[A-Za-z0-9_-]{35}"   # Telegram tokens; must print nothing
 ```
 
-In PowerShell, the last line is `detect-secrets-hook --baseline .secrets.baseline (git ls-files)`.
+In PowerShell, the scanner line is `detect-secrets-hook --baseline .secrets.baseline (git ls-files)`.
+The `git grep` line is there because detect-secrets did not flag a Telegram-shaped token
+in my test.
 Tests run offline against hand-written fixtures in `tests/fixtures/`.
 
 ## License
