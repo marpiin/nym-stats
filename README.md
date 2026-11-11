@@ -112,7 +112,10 @@ nym-stats report                     # print the summary
 nym-stats notify                     # send the summary to Telegram
 nym-stats export --out readings.csv  # all readings as CSV
 nym-stats export --monthly --out monthly.csv
+nym-stats --version
 ```
+
+`export` writes `readings.csv` in the working directory when `--out` is not given.
 
 `fetch` stores at most one reading per node per UTC day. If today's reading is already
 there it does nothing, without calling the API. Every fetch, good or bad, is recorded,
@@ -192,7 +195,8 @@ git grep -nE "[0-9]{8,10}:[A-Za-z0-9_-]{35}"   # Telegram tokens; must print not
 In PowerShell, the scanner line is `detect-secrets-hook --baseline .secrets.baseline (git ls-files)`.
 The `git grep` line is there because detect-secrets did not flag a Telegram-shaped token
 in my test.
-Tests run offline against hand-written fixtures in `tests/fixtures/`.
+Tests run offline against hand-written fixtures in `tests/fixtures/`. CI runs the same
+checks on Ubuntu and Windows with Python 3.11; the secret scans run on Ubuntu only.
 
 ## License
 
